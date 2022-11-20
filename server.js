@@ -3,9 +3,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
+require("dotenv").config();
 
-const CLIENT_ID = "";
-const CLIENT_SECRET = "";
+const CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+const CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+console.log(CLIENT_ID);
+console.log(CLIENT_SECRET);
 
 const app = express();
 app.use(cors());
